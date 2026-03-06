@@ -32,7 +32,7 @@ public class Splash extends JFrame implements Runnable {
         }
 
         setLocation(350, 150);
-        setSize(1300, 750);
+        setSize(1000, 650);
 
     }
 
@@ -46,7 +46,7 @@ public class Splash extends JFrame implements Runnable {
             setVisible(false);
             
             // Next Frame
-          
+          Login l = new Login();
         } catch (Exception e) {
             
         }
