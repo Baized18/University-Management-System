@@ -12,7 +12,7 @@ public class Splash extends JFrame implements Runnable {
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/BUBT1.jpg"));
         Image i2 = i1.getImage().getScaledInstance(1300, 750, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
-        JLabel image = new JLabel(i3);
+        JLabel image = new JLabel(i3);  //image passing
         add(image);
 
         t = new Thread(this);
