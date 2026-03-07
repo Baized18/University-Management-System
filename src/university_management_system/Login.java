@@ -6,6 +6,9 @@ import java.awt.event.*;
 
 public class Login extends JFrame implements ActionListener {
 
+    JButton login, cancel;
+    JTextField tfun, tfpw;
+
     Login() {
 
         // Window Title
@@ -46,7 +49,7 @@ public class Login extends JFrame implements ActionListener {
         add(tfpw);
 
         // Login Button
-        JButton login = new JButton("Login");
+        login = new JButton("Login");
         login.setBounds(60, 170, 120, 35);
         login.setBackground(new Color(0, 102, 204));
         login.setForeground(Color.WHITE);
@@ -56,7 +59,7 @@ public class Login extends JFrame implements ActionListener {
         add(login);
 
         // Cancel Button
-        JButton cancel = new JButton("Cancel");
+        cancel = new JButton("Cancel");
         cancel.setBounds(210, 170, 120, 35);
         cancel.setBackground(new Color(200, 0, 0));
         cancel.setForeground(Color.WHITE);
@@ -79,7 +82,12 @@ public class Login extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {  //actionevent class tracks source of the button clicked
-        
+
+        if (ae.getSource() == login){
+            
+        }else if (ae.getSource() == cancel){
+            setVisible(false);
+        }
     }
 
     public static void main(String[] args) {

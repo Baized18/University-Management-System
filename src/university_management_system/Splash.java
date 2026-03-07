@@ -92,7 +92,7 @@ public class Splash extends JFrame implements Runnable {
     // run() method executes when thread starts
 
         try {
-            Thread.sleep(4000);
+            Thread.sleep(4000);  
             // Keeps splash screen visible for 4 seconds
 
             setVisible(false);
