@@ -2,59 +2,80 @@ package university_management_system;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.sql.*;
 
 public class Login extends JFrame {
 
     Login() {
 
-        getContentPane().setBackground(Color.WHITE);
+        // Window Title
+        setTitle("Bangladesh University of Business and Technology");
+
+        getContentPane().setBackground(new Color(240, 248, 255));
         setLayout(null);
 
-        JLabel un = new JLabel("Username :");  // usename text
-        un.setBounds(40, 60, 100, 20);  //(distance from left , distance from top , width of label , height of label )
+        // Heading
+        JLabel heading = new JLabel("BUBT Annex");
+        heading.setBounds(200, 10, 250, 30);
+        heading.setFont(new Font("Arial", Font.BOLD, 22));
+        heading.setForeground(new Color(30, 30, 120));
+        add(heading);
+
+        // Username Label
+        JLabel un = new JLabel("Username :");
+        un.setBounds(40, 70, 100, 25);
+        un.setFont(new Font("Arial", Font.BOLD, 14));
         add(un);
 
-        JTextField tfun = new JTextField();    //textfieldusername
-        tfun.setBounds(150, 60, 150, 20);
+        // Username Field
+        JTextField tfun = new JTextField();
+        tfun.setBounds(150, 70, 180, 25);
+        tfun.setFont(new Font("Arial", Font.PLAIN, 14));
         add(tfun);
 
-        JLabel pw = new JLabel("Password :");  // password text
-        pw.setBounds(40, 100, 100, 20);  //(distance from left , distance from top , width of label , height of label )
+        // Password Label
+        JLabel pw = new JLabel("Password :");
+        pw.setBounds(40, 110, 100, 25);
+        pw.setFont(new Font("Arial", Font.BOLD, 14));
         add(pw);
 
-        JPasswordField tfpw = new JPasswordField();    //textfieldpassword
-        tfpw.setBounds(150, 100, 150, 20);
+        // Password Field
+        JPasswordField tfpw = new JPasswordField();
+        tfpw.setBounds(150, 110, 180, 25);
+        tfpw.setFont(new Font("Arial", Font.PLAIN, 14));
         add(tfpw);
 
+        // Login Button
         JButton login = new JButton("Login");
-        login.setBounds(40, 140, 120, 30);
-        login.setBackground(Color.BLACK);
+        login.setBounds(60, 170, 120, 35);
+        login.setBackground(new Color(0, 102, 204));
         login.setForeground(Color.WHITE);
-        login.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        login.setFont(new Font("Arial", Font.BOLD, 14));
+        login.setFocusPainted(false);
         add(login);
-        
+
+        // Cancel Button
         JButton cancel = new JButton("Cancel");
-        cancel.setBounds(180, 140, 120, 30);
-        cancel.setBackground(Color.BLACK);
+        cancel.setBounds(210, 170, 120, 35);
+        cancel.setBackground(new Color(200, 0, 0));
         cancel.setForeground(Color.WHITE);
-        cancel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        cancel.setFont(new Font("Arial", Font.BOLD, 14));
+        cancel.setFocusPainted(false);
         add(cancel);
-        
-         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/usericon.jpg"));
-        Image i2 = i1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+
+        // Image
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/usericon.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
-        image.setBounds(350, 10, 200, 200);
+        image.setBounds(380, 40, 180, 180);
         add(image);
 
-        setLocation(600, 300);
         setSize(600, 300);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
     public static void main(String[] args) {
-         new Login();
+        new Login();
     }
 }
