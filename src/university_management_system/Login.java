@@ -2,8 +2,9 @@ package university_management_system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
 
     Login() {
 
@@ -49,6 +50,7 @@ public class Login extends JFrame {
         login.setBounds(60, 170, 120, 35);
         login.setBackground(new Color(0, 102, 204));
         login.setForeground(Color.WHITE);
+        login.addActionListener(this);   // tells that add button clicked
         login.setFont(new Font("Arial", Font.BOLD, 14));
         login.setFocusPainted(false);
         add(login);
@@ -58,6 +60,7 @@ public class Login extends JFrame {
         cancel.setBounds(210, 170, 120, 35);
         cancel.setBackground(new Color(200, 0, 0));
         cancel.setForeground(Color.WHITE);
+        cancel.addActionListener(this);       //tells that cancel button is clicked
         cancel.setFont(new Font("Arial", Font.BOLD, 14));
         cancel.setFocusPainted(false);
         add(cancel);
@@ -73,6 +76,10 @@ public class Login extends JFrame {
         setSize(600, 300);
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {  //actionevent class tracks source of the button clicked
+        
     }
 
     public static void main(String[] args) {
