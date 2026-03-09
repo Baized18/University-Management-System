@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.event.*;
 // Event package used to handle button clicks and user actions
 
+import java.sql.*;
+
 public class Login extends JFrame implements ActionListener {
 // Login class that creates the login window and handles button events
 
@@ -84,6 +86,27 @@ public class Login extends JFrame implements ActionListener {
     // Method triggered when login or cancel button is clicked
 
         if (ae.getSource() == login){
+             String username = tfun.getText();
+            String password = tfpw.getText();
+            
+             String query = "select * from login where username='"+username+"' and password='"+password+"'";
+            
+            try {
+                DBConnection c = new DBConnection();
+                ResultSet rs = c.s.executeQuery(query);
+                
+                if (rs.next()) {
+                    setVisible(false);
+                    new Project();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid username or password");
+                    setVisible(false);
+                }
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+          
             
         }else if (ae.getSource() == cancel){
             setVisible(false);
