@@ -1,194 +1,152 @@
-package university_management_system; // Package for university management system
+package university_management_system;
 
-import javax.swing.*; // Swing for GUI components
-import java.awt.*; // AWT for colors and layout
-import java.awt.event.*; // Event handling for menu actions
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class Project extends JFrame implements ActionListener { // Main project dashboard GUI
+public class Project extends JFrame implements ActionListener {
 
-    Project() { // Constructor to create main window
-        setSize(1500, 800); // Window size
-        setLocation(250, 100); // Window position
+    Project() {
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/BUBTinside.jpg")); // Load background image
-        Image i2 = i1.getImage().getScaledInstance(1500, 750, Image.SCALE_DEFAULT); // Resize image
-        ImageIcon i3 = new ImageIcon(i2);
-        JLabel image = new JLabel(i3); // Add image to label
-        add(image); // Add label to frame
+        // Frame settings
+        setTitle("BUBT University Management System");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); // Full screen
+        setLayout(new BorderLayout());
 
-        JMenuBar mb = new JMenuBar(); // Create menu bar
+        // ===== Background Image =====
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/BUBTinside.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(1600, 900, Image.SCALE_SMOOTH);
+        JLabel background = new JLabel(new ImageIcon(i2));
+        background.setLayout(new BorderLayout());
+        add(background);
 
-        // ===== New Information Menu =====
-        JMenu newInformation = new JMenu("New Information"); 
-        newInformation.setForeground(Color.BLUE); 
+        // ===== Title Header =====
+        JLabel heading = new JLabel("Bangladesh University of Business and Technology", JLabel.CENTER);
+        heading.setFont(new Font("Serif", Font.BOLD, 36));
+        heading.setForeground(Color.WHITE);
+        heading.setOpaque(true);
+        heading.setBackground(new Color(0, 51, 102));
+        heading.setPreferredSize(new Dimension(100, 60));
+        background.add(heading, BorderLayout.NORTH);
+
+        // ===== Menu Bar =====
+        JMenuBar mb = new JMenuBar();
+        mb.setBackground(new Color(230,230,230));
+        mb.setFont(new Font("Arial", Font.BOLD, 14));
+
+        // ===== New Information =====
+        JMenu newInformation = new JMenu("New Information");
+        newInformation.setForeground(new Color(0,102,204));
         mb.add(newInformation);
 
-        JMenuItem facultyInfo = new JMenuItem("New Faculty Information"); // Menu item for adding faculty
-        facultyInfo.setBackground(Color.WHITE);
-        facultyInfo.addActionListener(this); // Handle click
+        JMenuItem facultyInfo = new JMenuItem("New Faculty");
+        facultyInfo.addActionListener(this);
         newInformation.add(facultyInfo);
 
-        JMenuItem studentInfo = new JMenuItem("New Student Information"); // Menu item for adding student
-        studentInfo.setBackground(Color.WHITE);
+        JMenuItem studentInfo = new JMenuItem("New Student");
         studentInfo.addActionListener(this);
         newInformation.add(studentInfo);
 
-        // ===== View Details Menu =====
+        // ===== View Details =====
         JMenu details = new JMenu("View Details");
-        details.setForeground(Color.RED);
+        details.setForeground(new Color(204,0,0));
         mb.add(details);
 
-        JMenuItem facultydetails = new JMenuItem("View Faculty Details"); // Menu item for viewing faculty
-        facultydetails.setBackground(Color.WHITE);
-        facultydetails.addActionListener(this);
-        details.add(facultydetails);
+        JMenuItem facultyDetails = new JMenuItem("Faculty Details");
+        facultyDetails.addActionListener(this);
+        details.add(facultyDetails);
 
-        JMenuItem studentdetails = new JMenuItem("View Student Details"); // Menu item for viewing student
-        studentdetails.setBackground(Color.WHITE);
-        studentdetails.addActionListener(this);
-        details.add(studentdetails);
+        JMenuItem studentDetails = new JMenuItem("Student Details");
+        studentDetails.addActionListener(this);
+        details.add(studentDetails);
 
-        // ===== Apply Leave Menu =====
-        JMenu leave = new JMenu("Apply Leave");
-        leave.setForeground(Color.BLUE);
-        mb.add(leave);
-
-        JMenuItem facultyleave = new JMenuItem("Faculty Leave"); // Apply leave for faculty
-        facultyleave.setBackground(Color.WHITE);
-        leave.add(facultyleave);
-
-        JMenuItem studentleave = new JMenuItem("Student Leave"); // Apply leave for student
-        studentleave.setBackground(Color.WHITE);
-        leave.add(studentleave);
-
-        // ===== Leave Details Menu =====
-        JMenu leaveDetails = new JMenu("Leave Details");
-        leaveDetails.setForeground(Color.RED);
-        mb.add(leaveDetails);
-
-        JMenuItem facultyleavedetails = new JMenuItem("Faculty Leave Details"); // View faculty leave
-        facultyleavedetails.setBackground(Color.WHITE);
-        facultyleavedetails.addActionListener(this);
-        leaveDetails.add(facultyleavedetails);
-
-        JMenuItem studentleavedetails = new JMenuItem("Student Leave Details"); // View student leave
-        studentleavedetails.setBackground(Color.WHITE);
-        studentleavedetails.addActionListener(this);
-        leaveDetails.add(studentleavedetails);
-
-        // ===== Examination Menu =====
+        // ===== Examination =====
         JMenu exam = new JMenu("Examination");
-        exam.setForeground(Color.BLUE);
+        exam.setForeground(new Color(0,102,204));
         mb.add(exam);
 
-        JMenuItem examinationdetails = new JMenuItem("Examination Results"); // View exam results
-        examinationdetails.setBackground(Color.WHITE);
-        examinationdetails.addActionListener(this);
-        exam.add(examinationdetails);
+        JMenuItem results = new JMenuItem("Results");
+        results.addActionListener(this);
+        exam.add(results);
 
-        JMenuItem entermarks = new JMenuItem("Enter Marks"); // Enter student marks
-        entermarks.setBackground(Color.WHITE);
-        entermarks.addActionListener(this);
-        exam.add(entermarks);
+        JMenuItem enterMarks = new JMenuItem("Enter Marks");
+        enterMarks.addActionListener(this);
+        exam.add(enterMarks);
 
-        // ===== Update Details Menu =====
-        JMenu updateInfo = new JMenu("Update Details");
-        updateInfo.setForeground(Color.RED);
-        mb.add(updateInfo);
-
-        JMenuItem updatefacultyinfo = new JMenuItem("Update Faculty Details"); // Update faculty info
-        updatefacultyinfo.setBackground(Color.WHITE);
-        updatefacultyinfo.addActionListener(this);
-        updateInfo.add(updatefacultyinfo);
-
-        JMenuItem updatestudentinfo = new JMenuItem("Update Student Details"); // Update student info
-        updatestudentinfo.setBackground(Color.WHITE);
-        updatestudentinfo.addActionListener(this);
-        updateInfo.add(updatestudentinfo);
-
-        // ===== Fee Details Menu =====
-        JMenu fee = new JMenu("Fee Details");
-        fee.setForeground(Color.BLUE);
+        // ===== Fee =====
+        JMenu fee = new JMenu("Fee");
+        fee.setForeground(new Color(204,0,0));
         mb.add(fee);
 
-        JMenuItem feestructure = new JMenuItem("Fee Structure"); // View fee structure
-        feestructure.setBackground(Color.WHITE);
-        feestructure.addActionListener(this);
-        fee.add(feestructure);
+        JMenuItem feeStructure = new JMenuItem("Fee Structure");
+        feeStructure.addActionListener(this);
+        fee.add(feeStructure);
 
-        JMenuItem feeform = new JMenuItem("Student Fee Form"); // View student fee form
-        feeform.setBackground(Color.WHITE);
-        feeform.addActionListener(this);
-        fee.add(feeform);
+        JMenuItem feeForm = new JMenuItem("Student Fee");
+        feeForm.addActionListener(this);
+        fee.add(feeForm);
 
-        // ===== Utility Menu =====
+        // ===== Utility =====
         JMenu utility = new JMenu("Utility");
-        utility.setForeground(Color.RED);
         mb.add(utility);
 
-        JMenuItem notepad = new JMenuItem("Notepad"); // Open Notepad
-        notepad.setBackground(Color.WHITE);
+        JMenuItem notepad = new JMenuItem("Notepad");
         notepad.addActionListener(this);
         utility.add(notepad);
 
-        JMenuItem calc = new JMenuItem("Calculator"); // Open Calculator
-        calc.setBackground(Color.WHITE);
+        JMenuItem calc = new JMenuItem("Calculator");
         calc.addActionListener(this);
         utility.add(calc);
 
-        // ===== About Menu =====
+        // ===== About =====
         JMenu about = new JMenu("About");
-        about.setForeground(Color.BLUE);
         mb.add(about);
 
-        JMenuItem ab = new JMenuItem("About"); // About application
-        ab.setBackground(Color.WHITE);
+        JMenuItem ab = new JMenuItem("About System");
         ab.addActionListener(this);
         about.add(ab);
 
-        // ===== Exit Menu =====
+        // ===== Exit =====
         JMenu exit = new JMenu("Exit");
-        exit.setForeground(Color.RED);
         mb.add(exit);
 
-        JMenuItem ex = new JMenuItem("Exit"); // Exit application
-        ex.setBackground(Color.WHITE);
+        JMenuItem ex = new JMenuItem("Close");
         ex.addActionListener(this);
         exit.add(ex);
 
-        setJMenuBar(mb); // Attach menu bar
-        setVisible(true); // Show main window
+        setJMenuBar(mb);
+
+        setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent ae) { // Handle menu item clicks
+    public void actionPerformed(ActionEvent ae) {
+
         String msg = ae.getActionCommand();
 
-        if (msg.equals("Exit")) { // Exit program
-            setVisible(false);
-        } else if (msg.equals("Calculator")) { // Open calculator
-            try { Runtime.getRuntime().exec("calc.exe"); } catch (Exception e) {}
-        } else if (msg.equals("Notepad")) { // Open notepad
-            try { Runtime.getRuntime().exec("notepad.exe"); } catch (Exception e) {}
-        } 
-        // Placeholder actions for other menu items
-        else if (msg.equals("New Faculty Information")) { /* new AddTeacher(); */ }
-        else if (msg.equals("New Student Information")) { /* new AddStudent(); */ }
-        else if (msg.equals("View Faculty Details")) { /* new TeacherDetails(); */ }
-        else if (msg.equals("View Student Details")) { /* new StudentDetails(); */ }
-        else if (msg.equals("Faculty Leave")) { /* new TeacherLeave(); */ }
-        else if (msg.equals("Student Leave")) { /* new StudentLeave(); */ }
-        else if (msg.equals("Faculty Leave Details")) { /* new TeacherLeaveDetails(); */ }
-        else if (msg.equals("Student Leave Details")) { /* new StudentLeaveDetails(); */ }
-        else if (msg.equals("Update Faculty Details")) { /* new UpdateTeacher(); */ }
-        else if (msg.equals("Update Student Details")) { /* new UpdateStudent(); */ }
-        else if (msg.equals("Enter Marks")) { /* new EnterMarks(); */ }
-        else if (msg.equals("Examination Results")) { /* new ExaminationDetails(); */ }
-        else if (msg.equals("Fee Structure")) { /* new FeeStructure(); */ }
-        else if (msg.equals("About")) { /* new About(); */ }
-        else if (msg.equals("Student Fee Form")) { /* new StudentFeeForm(); */ }
+        if(msg.equals("Close")){
+            System.exit(0);
+        }
+
+        else if(msg.equals("Calculator")){
+            try{
+                Runtime.getRuntime().exec("calc.exe");
+            }catch(Exception e){}
+        }
+
+        else if(msg.equals("Notepad")){
+            try{
+                Runtime.getRuntime().exec("notepad.exe");
+            }catch(Exception e){}
+        }
+
+        else if(msg.equals("About System")){
+            JOptionPane.showMessageDialog(null,
+            "University Management System\nDeveloped for BUBT",
+            "About", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
-    public static void main(String[] args) { // Main method to launch Project window
+    public static void main(String[] args){
         new Project();
     }
 }
