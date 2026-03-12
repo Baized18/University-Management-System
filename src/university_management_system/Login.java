@@ -10,35 +10,37 @@ public class Login extends JFrame implements ActionListener { // Login GUI and b
     JButton login, cancel; // Buttons for login and cancel
     JTextField tfun, tfpw; // Text fields for username and password
 
-    Login() { // Constructor to create login window
+    Login() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                                            // Constructor to create login window
         setTitle("Bangladesh University of Business and Technology"); // Window title
         getContentPane().setBackground(new Color(240, 248, 255)); // Background color
         setLayout(null); // Absolute positioning
 
         JLabel heading = new JLabel("BUBT Annex"); // Main heading
         heading.setBounds(200, 10, 250, 30); // Position & size
-        heading.setFont(new Font("Arial", Font.BOLD, 22)); // Font style
+        heading.setFont(new Font("Times New Roman", Font.BOLD, 22)); // Font style
         heading.setForeground(new Color(30, 30, 120)); // Font color
         add(heading);
 
         JLabel un = new JLabel("Username :"); // Label for username
         un.setBounds(40, 70, 100, 25);
-        un.setFont(new Font("Arial", Font.BOLD, 14));
+        un.setFont(new Font("Times New Roman", Font.BOLD, 14));
         add(un);
 
         tfun = new JTextField(); // Username input field
         tfun.setBounds(150, 70, 180, 25);
-        tfun.setFont(new Font("Arial", Font.PLAIN, 14));
+        tfun.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         add(tfun);
 
         JLabel pw = new JLabel("Password :"); // Label for password
         pw.setBounds(40, 110, 100, 25);
-        pw.setFont(new Font("Arial", Font.BOLD, 14));
+        pw.setFont(new Font("Times New Roman", Font.BOLD, 14));
         add(pw);
 
         tfpw = new JPasswordField(); // Password input field
         tfpw.setBounds(150, 110, 180, 25);
-        tfpw.setFont(new Font("Arial", Font.PLAIN, 14));
+        tfpw.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         add(tfpw);
 
         login = new JButton("Login"); // Login button
@@ -46,7 +48,7 @@ public class Login extends JFrame implements ActionListener { // Login GUI and b
         login.setBackground(new Color(0, 102, 204)); // Button color
         login.setForeground(Color.WHITE); // Text color
         login.addActionListener(this); // Handle login click
-        login.setFont(new Font("Arial", Font.BOLD, 14));
+        login.setFont(new Font("Times New Roman", Font.BOLD, 14));
         login.setFocusPainted(false);
         add(login);
 
@@ -55,7 +57,7 @@ public class Login extends JFrame implements ActionListener { // Login GUI and b
         cancel.setBackground(new Color(200, 0, 0));
         cancel.setForeground(Color.WHITE);
         cancel.addActionListener(this); // Handle cancel click
-        cancel.setFont(new Font("Arial", Font.BOLD, 14));
+        cancel.setFont(new Font("Times New Roman", Font.BOLD, 14));
         cancel.setFocusPainted(false);
         add(cancel);
 

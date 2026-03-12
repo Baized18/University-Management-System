@@ -7,7 +7,9 @@ public class Splash extends JFrame implements Runnable { // Splash screen class 
 
     Thread t; // Thread for running splash animation
 
-    Splash() { // Constructor to create and display splash screen
+    Splash() {
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             // Constructor to create and display splash screen
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/BUBT1.jpg")); // Load image
         Image i2 = i1.getImage().getScaledInstance(1300, 750, Image.SCALE_DEFAULT); // Resize image
         ImageIcon i3 = new ImageIcon(i2); // Create ImageIcon from resized image

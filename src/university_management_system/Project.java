@@ -7,6 +7,7 @@ import java.awt.event.*;
 public class Project extends JFrame implements ActionListener {
 
     Project() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Frame settings
         setTitle("BUBT University Management System");
