@@ -2,26 +2,33 @@ package university_management_system;
 
 import javax.swing.*;
 import java.awt.*;
+import com.toedter.calendar.JDateChooser;
 
 public class AddStudent extends JFrame {
 
-    JTextField tfname, tffname , tfrollno;
+    JTextField tfname, tffname, tfrollno, tfdob, tfaddress, tfphone, tfemail, tfssc, tfhsc;
+    JLabel lbladdress, lbldob, heading, lblname, lblfname, lblrollno, lblphone, lblemail, lblssc, lblhsc;
+    JDateChooser dcdob;
 
     AddStudent() {
-        
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        setTitle("Bangladesh University of Business and Technology"); // Window title
+        getContentPane().setBackground(new Color(255, 255, 255)); // Background color R G B
+        setLayout(null); // Absolute positioning
 
         setSize(900, 700);
         setLocation(350, 50);
 
         setLayout(null);
 
-        JLabel heading = new JLabel("New Student Details");
+        heading = new JLabel("New Student Details");
         heading.setBounds(310, 30, 500, 50);
         heading.setFont(new Font("Times New Roman", Font.BOLD, 30));
         add(heading);
 
-        JLabel lblname = new JLabel("Name");
+        lblname = new JLabel("Name");
         lblname.setBounds(50, 150, 100, 30);
         lblname.setFont(new Font("Times New Roman", Font.BOLD, 20));
         add(lblname);
@@ -30,23 +37,79 @@ public class AddStudent extends JFrame {
         tfname.setBounds(170, 150, 150, 30);
         add(tfname);
 
-        JLabel lblfname = new JLabel("Father's Name");
+        lblfname = new JLabel("Father's Name");
         lblfname.setBounds(400, 150, 200, 30);
         lblfname.setFont(new Font("Times New Roman", Font.BOLD, 20));
         add(lblfname);
-        
+
         tffname = new JTextField();
         tffname.setBounds(540, 150, 150, 30);
         add(tffname);
-        
-         JLabel lblrollno = new JLabel("Roll Number");
-        lblrollno.setBounds(50, 250, 200, 30);
+
+        lblrollno = new JLabel("Roll Number");
+        lblrollno.setBounds(50, 200, 200, 30);
         lblrollno.setFont(new Font("Times New Roman", Font.BOLD, 20));
         add(lblrollno);
 
         tfrollno = new JTextField();
-        tfrollno.setBounds(170, 250, 150, 30);
+        tfrollno.setBounds(170, 200, 150, 30);
         add(tfrollno);
+
+        lbldob = new JLabel("Date of Birth");
+        lbldob.setBounds(400, 200, 200, 30);
+        lbldob.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        add(lbldob);
+
+        dcdob = new JDateChooser();
+        dcdob.setBounds(540, 200, 150, 30);
+        add(dcdob);
+
+        lbladdress = new JLabel("Address");
+        lbladdress.setBounds(50, 250, 200, 30);
+        lbladdress.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        add(lbladdress);
+
+        tfaddress = new JTextField();
+        tfaddress.setBounds(170, 250, 150, 30);
+        add(tfaddress);
+
+        lblphone = new JLabel("Phone");
+        lblphone.setBounds(400, 250, 200, 30);
+        lblphone.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        add(lblphone);
+
+        tfphone = new JTextField();
+        tfphone.setBounds(540, 250, 150, 30);
+        add(tfphone);
+
+        lblemail = new JLabel("Email");
+        lblemail.setBounds(50, 300, 200, 30);
+        lblemail.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        add(lblemail);
+
+        tfemail = new JTextField();
+        tfemail.setBounds(170, 300, 150, 30);
+        add(tfemail);
+
+        lblssc = new JLabel("SSC Grade");
+        lblssc.setBounds(400, 300, 200, 30);
+        lblssc.setFont(new Font("serif", Font.BOLD, 20));
+        add(lblssc);
+
+        tfssc = new JTextField();
+        tfssc.setBounds(540, 300, 150, 30);
+        add(tfssc);
+
+        lblhsc = new JLabel("HSC Grade");
+        lblhsc.setBounds(50, 350, 200, 30);
+        lblhsc.setFont(new Font("serif", Font.BOLD, 20));
+        add(lblhsc);
+
+        tfhsc = new JTextField();
+        tfhsc.setBounds(170, 350, 150, 30);
+        add(tfhsc);
+        
+        
 
         setVisible(true);
     }

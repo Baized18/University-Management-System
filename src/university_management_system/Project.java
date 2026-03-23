@@ -16,7 +16,7 @@ public class Project extends JFrame implements ActionListener {
 
         // ===== Background Image =====
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/BUBTinside.jpg"));
-        Image i2 = i1.getImage().getScaledInstance(1600, 900, Image.SCALE_SMOOTH);
+        Image i2 = i1.getImage().getScaledInstance(1600, 900, Image.SCALE_DEFAULT);
         JLabel background = new JLabel(new ImageIcon(i2));
         background.setLayout(new BorderLayout());
         add(background);
