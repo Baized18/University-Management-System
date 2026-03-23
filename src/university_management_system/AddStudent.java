@@ -6,8 +6,9 @@ import com.toedter.calendar.JDateChooser;
 
 public class AddStudent extends JFrame {
 
-    JTextField tfname, tffname, tfrollno, tfdob, tfaddress, tfphone, tfemail, tfssc, tfhsc;
-    JLabel lbladdress, lbldob, heading, lblname, lblfname, lblrollno, lblphone, lblemail, lblssc, lblhsc;
+    JTextField tfname, tffname, tfrollno, tfdob, tfaddress, tfphone, tfemail, tfssc, tfhsc, tfnid;
+    JLabel lbladdress, lbldob, heading, lblname, lblfname, lblrollno, lblphone, lblemail, lblssc, lblhsc, lblnid, lblprogram, lblfaculty;
+    JComboBox cbprogram, cbfaculty;
     JDateChooser dcdob;
 
     AddStudent() {
@@ -108,6 +109,37 @@ public class AddStudent extends JFrame {
         tfhsc = new JTextField();
         tfhsc.setBounds(170, 350, 150, 30);
         add(tfhsc);
+
+        lblnid = new JLabel("NID Number");
+        lblnid.setBounds(400, 350, 200, 30);
+        lblnid.setFont(new Font("serif", Font.BOLD, 20));
+        add(lblnid);
+
+        tfnid = new JTextField();
+        tfnid.setBounds(540, 350, 150, 30);
+        add(tfnid);
+
+        lblfaculty = new JLabel("Faculty");
+        lblfaculty.setBounds(50, 400, 200, 30);
+        lblfaculty.setFont(new Font("serif", Font.BOLD, 20));
+        add(lblfaculty);
+
+        String faculty[] = {"Business", "Arts and Humanities", "Engineering and Applied Sciences", "Law", "Social Science" , "CS & AI"};
+        cbfaculty = new JComboBox(faculty);
+        cbfaculty.setBounds(170, 400, 200, 30);
+        cbfaculty.setBackground(Color.WHITE);
+        add(cbfaculty);
+
+        lblprogram = new JLabel("Program");
+        lblprogram.setBounds(400, 400, 200, 30);
+        lblprogram.setFont(new Font("serif", Font.BOLD, 20));
+        add(lblprogram);
+
+        String program[] = {"BBA" , "MBA" , "EMBA" , "B.A" , "M.A" , "B.Sc" , "LL.B" ,"LL.M" ,"M.Sc"};
+        cbprogram = new JComboBox(program);
+        cbprogram.setBounds(540, 400, 150, 30);
+        cbprogram.setBackground(Color.WHITE);
+        add(cbprogram);
         
         
 
