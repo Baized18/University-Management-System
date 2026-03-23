@@ -3,13 +3,15 @@ package university_management_system;
 import javax.swing.*;
 import java.awt.*;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.*;
 
-public class AddStudent extends JFrame {
+public class AddStudent extends JFrame implements ActionListener {
 
     JTextField tfname, tffname, tfrollno, tfdob, tfaddress, tfphone, tfemail, tfssc, tfhsc, tfnid;
     JLabel lbladdress, lbldob, heading, lblname, lblfname, lblrollno, lblphone, lblemail, lblssc, lblhsc, lblnid, lblprogram, lblfaculty;
     JComboBox cbprogram, cbfaculty;
     JDateChooser dcdob;
+    JButton submit, cancel;
 
     AddStudent() {
 
@@ -124,7 +126,7 @@ public class AddStudent extends JFrame {
         lblfaculty.setFont(new Font("serif", Font.BOLD, 20));
         add(lblfaculty);
 
-        String faculty[] = {"Business", "Arts and Humanities", "Engineering and Applied Sciences", "Law", "Social Science" , "CS & AI"};
+        String faculty[] = {"Business", "Arts and Humanities", "Engineering and Applied Sciences", "Law", "Social Science", "CS & AI"};
         cbfaculty = new JComboBox(faculty);
         cbfaculty.setBounds(170, 400, 200, 30);
         cbfaculty.setBackground(Color.WHITE);
@@ -135,15 +137,61 @@ public class AddStudent extends JFrame {
         lblprogram.setFont(new Font("serif", Font.BOLD, 20));
         add(lblprogram);
 
-        String program[] = {"BBA" , "MBA" , "EMBA" , "B.A" , "M.A" , "B.Sc" , "LL.B" ,"LL.M" ,"M.Sc"};
+        String program[] = {"BBA", "MBA", "EMBA", "B.A", "M.A", "B.Sc", "LL.B", "LL.M", "M.Sc"};
         cbprogram = new JComboBox(program);
         cbprogram.setBounds(540, 400, 150, 30);
         cbprogram.setBackground(Color.WHITE);
         add(cbprogram);
-        
-        
+
+        submit = new JButton("Submit");
+        submit.setBounds(250, 550, 120, 30);
+        submit.setBackground(new Color(0, 102, 204));
+        submit.setForeground(Color.WHITE);
+        submit.addActionListener(this);
+        submit.setFont(new Font("Tahoma", Font.BOLD, 15));
+        add(submit);
+
+        cancel = new JButton("Cancel");
+        cancel.setBounds(450, 550, 120, 30);
+        cancel.setBackground(new Color(200, 0, 0));
+        cancel.setForeground(Color.WHITE);
+        cancel.addActionListener(this);
+        cancel.setFont(new Font("Tahoma", Font.BOLD, 15));
+        add(cancel);
 
         setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == submit) {
+            String name = tfname.getText();
+            String fname = tffname.getText();
+            String rollno = tfrollno.getText();
+            String dob = ((JTextField) dcdob.getDateEditor().getUiComponent()).getText();
+            String address = tfaddress.getText();
+            String phone = tfphone.getText();
+            String email = tfemail.getText();
+            String ssc = tfssc.getText();
+            String hsc = tfhsc.getText();
+            String nid = tfnid.getText();
+            String faculty = (String) cbfaculty.getSelectedItem();
+            String program = (String) cbprogram.getSelectedItem();
+            
+              try {
+                String query = "insert into student values('"+name+"', '"+fname+"', '"+rollno+"', '"+dob+"', '"+address+"', '"+phone+"', '"+email+"', '"+ssc+"', '"+hsc+"', '"+nid+"', '"+faculty+"', '"+program+"')";
+
+                DBConnection con = new DBConnection();
+                con.s.executeUpdate(query);
+                
+                JOptionPane.showMessageDialog(null, "Student Details Inserted Successfully");
+                setVisible(false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            setVisible(false);
+        }
     }
 
     public static void main(String[] args) {
