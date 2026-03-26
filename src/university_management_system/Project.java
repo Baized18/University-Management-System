@@ -32,12 +32,12 @@ public class Project extends JFrame implements ActionListener {
 
         // ===== Menu Bar =====
         JMenuBar mb = new JMenuBar();
-        mb.setBackground(new Color(230,230,230));
+        mb.setBackground(new Color(230, 230, 230));
         mb.setFont(new Font("Arial", Font.BOLD, 14));
 
         // ===== New Information =====
         JMenu newInformation = new JMenu("New Information");
-        newInformation.setForeground(new Color(0,102,204));
+        newInformation.setForeground(new Color(0, 102, 204));
         mb.add(newInformation);
 
         JMenuItem facultyInfo = new JMenuItem("New Faculty");
@@ -50,7 +50,7 @@ public class Project extends JFrame implements ActionListener {
 
         // ===== View Details =====
         JMenu details = new JMenu("View Details");
-        details.setForeground(new Color(204,0,0));
+        details.setForeground(new Color(204, 0, 0));
         mb.add(details);
 
         JMenuItem facultyDetails = new JMenuItem("Faculty Details");
@@ -63,7 +63,7 @@ public class Project extends JFrame implements ActionListener {
 
         // ===== Examination =====
         JMenu exam = new JMenu("Examination");
-        exam.setForeground(new Color(0,102,204));
+        exam.setForeground(new Color(0, 102, 204));
         mb.add(exam);
 
         JMenuItem results = new JMenuItem("Results");
@@ -76,7 +76,7 @@ public class Project extends JFrame implements ActionListener {
 
         // ===== Fee =====
         JMenu fee = new JMenu("Fee");
-        fee.setForeground(new Color(204,0,0));
+        fee.setForeground(new Color(204, 0, 0));
         mb.add(fee);
 
         JMenuItem feeStructure = new JMenuItem("Fee Structure");
@@ -124,30 +124,30 @@ public class Project extends JFrame implements ActionListener {
 
         String msg = ae.getActionCommand();
 
-        if(msg.equals("Close")){
+        if (msg.equals("Close")) {
             System.exit(0);
-        }
-
-        else if(msg.equals("Calculator")){
-            try{
+        } else if (msg.equals("Calculator")) {
+            try {
                 Runtime.getRuntime().exec("calc.exe");
-            }catch(Exception e){}
-        }
-
-        else if(msg.equals("Notepad")){
-            try{
+            } catch (Exception e) {
+            }
+        } else if (msg.equals("Notepad")) {
+            try {
                 Runtime.getRuntime().exec("notepad.exe");
-            }catch(Exception e){}
-        }
-
-        else if(msg.equals("About System")){
+            } catch (Exception e) {
+            }
+        } else if (msg.equals("New Faculty")) {
+            new AddTeacher();
+        } else if (msg.equals("New Student")) {
+            new AddStudent();
+        } else if (msg.equals("About System")) {
             JOptionPane.showMessageDialog(null,
-            "University Management System\nDeveloped for BUBT",
-            "About", JOptionPane.INFORMATION_MESSAGE);
+                    "University Management System\nDeveloped for BUBT",
+                    "About", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         new Project();
     }
 }
