@@ -161,17 +161,53 @@ public class AddStudent extends JFrame implements ActionListener {
         cbprogram.setBounds(540, 400, 150, 30);
         add(cbprogram);
 
-        // Submit Button
+        // Submit Button (Modern Blue Style)
         submit = new JButton("Submit");
-        submit.setBounds(250, 550, 120, 30);
-        submit.addActionListener(this); // Event handling
+        submit.setBounds(250, 550, 140, 40);
+        submit.setBackground(new Color(0, 123, 255)); // Modern blue
+        submit.setForeground(Color.WHITE);
+        submit.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        submit.setFocusPainted(false); // Remove focus border
+        submit.setBorder(BorderFactory.createEmptyBorder()); // Clean look
+        submit.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Hand cursor
         add(submit);
 
-        // Cancel Button
+// Hover effect for Submit
+        submit.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                submit.setBackground(new Color(0, 105, 217)); // Darker blue
+            }
+
+            public void mouseExited(MouseEvent e) {
+                submit.setBackground(new Color(0, 123, 255));
+            }
+        });
+
+// Cancel Button (Modern Red Style)
         cancel = new JButton("Cancel");
-        cancel.setBounds(450, 550, 120, 30);
-        cancel.addActionListener(this);
+        cancel.setBounds(450, 550, 140, 40);
+        cancel.setBackground(new Color(220, 53, 69)); // Modern red
+        cancel.setForeground(Color.WHITE);
+        cancel.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        cancel.setFocusPainted(false);
+        cancel.setBorder(BorderFactory.createEmptyBorder());
+        cancel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(cancel);
+
+// Hover effect for Cancel
+        cancel.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                cancel.setBackground(new Color(200, 35, 51)); // Darker red
+            }
+
+            public void mouseExited(MouseEvent e) {
+                cancel.setBackground(new Color(220, 53, 69));
+            }
+        });
+
+// Add ActionListener
+        submit.addActionListener(this);
+        cancel.addActionListener(this);
 
         setVisible(true); // Show window
     }
