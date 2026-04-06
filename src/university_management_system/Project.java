@@ -144,6 +144,10 @@ public class Project extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null,
                     "University Management System\nDeveloped for BUBT",
                     "About", JOptionPane.INFORMATION_MESSAGE);
+        }else if (msg.equals("Faculty Details")) {
+            new TeacherDetails();
+        } else if (msg.equals("Student Details")) {
+            new StudentDetails();
         }
     }
 
