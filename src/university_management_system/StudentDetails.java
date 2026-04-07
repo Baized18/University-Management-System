@@ -6,27 +6,40 @@ import java.sql.*;
 import net.proteanit.sql.DbUtils;
 import java.awt.event.*;
 
+// Main class for showing student details
 public class StudentDetails extends JFrame implements ActionListener {
 
+    // UI Components
     Choice crollno;
     JTable table;
     JButton search, print, update, add, delete, cancel;
 
+    // Fonts
+    Font mainFont = new Font("Times New Roman", Font.PLAIN, 16);
+    Font headingFont = new Font("Times New Roman", Font.BOLD, 18);
+
+    // Constructor
     StudentDetails() {
 
+        // Frame settings
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Bangladesh University of Business and Technology");
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
 
+        // Heading label
         JLabel rollsearch = new JLabel("Search by Roll Number");
-        rollsearch.setBounds(20, 20, 150, 20);
+        rollsearch.setBounds(20, 20, 220, 25);
+        rollsearch.setFont(headingFont); // ✅ font applied
         add(rollsearch);
 
+        // Dropdown
         crollno = new Choice();
-        crollno.setBounds(180, 20, 150, 20);
+        crollno.setBounds(240, 20, 150, 25);
+        crollno.setFont(mainFont);
         add(crollno);
 
+        // Load roll numbers
         try {
             DBConnection c = new DBConnection();
             ResultSet rs = c.s.executeQuery("select * from student");
@@ -37,45 +50,56 @@ public class StudentDetails extends JFrame implements ActionListener {
             e.printStackTrace();
         }
 
+        // Table
         table = new JTable();
+        table.setFont(mainFont);
+        table.setRowHeight(22);
+        table.getTableHeader().setFont(new Font("Times New Roman", Font.BOLD, 16));
+
         loadTable();
 
         JScrollPane jsp = new JScrollPane(table);
-        jsp.setBounds(0, 160, 900, 500);
+        jsp.setBounds(0, 150, 900, 500);
         add(jsp);
 
         // Buttons
         search = new JButton("Search");
         search.setBounds(20, 70, 100, 30);
+        search.setFont(mainFont);
         search.addActionListener(this);
         add(search);
 
         print = new JButton("Print");
         print.setBounds(140, 70, 100, 30);
+        print.setFont(mainFont);
         print.addActionListener(this);
         add(print);
 
         add = new JButton("Add");
         add.setBounds(260, 70, 100, 30);
+        add.setFont(mainFont);
         add.addActionListener(this);
         add(add);
 
         update = new JButton("Update");
         update.setBounds(380, 70, 100, 30);
+        update.setFont(mainFont);
         update.addActionListener(this);
         add(update);
 
         delete = new JButton("Delete");
         delete.setBounds(500, 70, 100, 30);
+        delete.setFont(mainFont);
         delete.addActionListener(this);
         add(delete);
 
         cancel = new JButton("Cancel");
         cancel.setBounds(620, 70, 100, 30);
+        cancel.setFont(mainFont);
         cancel.addActionListener(this);
         add(cancel);
 
-        // ✅ Apply Hover Effects
+        // Hover Effects
         addHoverEffect(search, new Color(40,167,69), new Color(33,136,56));
         addHoverEffect(print, new Color(23,162,184), new Color(19,132,150));
         addHoverEffect(add, new Color(0,123,255), new Color(0,105,217));
@@ -83,12 +107,13 @@ public class StudentDetails extends JFrame implements ActionListener {
         addHoverEffect(delete, new Color(220,53,69), new Color(200,35,51));
         addHoverEffect(cancel, new Color(108,117,125), new Color(90,98,104));
 
+        // Frame settings
         setSize(900, 700);
         setLocation(350, 50);
         setVisible(true);
     }
 
-    // 🔄 Load Table Data
+    // Load table data
     public void loadTable() {
         try {
             DBConnection c = new DBConnection();
@@ -99,7 +124,7 @@ public class StudentDetails extends JFrame implements ActionListener {
         }
     }
 
-    // ✅ Reusable Hover Method
+    // Hover effect method
     public void addHoverEffect(JButton btn, Color normal, Color hover) {
         btn.setBackground(normal);
         btn.setForeground(Color.WHITE);
@@ -117,6 +142,7 @@ public class StudentDetails extends JFrame implements ActionListener {
         });
     }
 
+    // Handle button actions
     public void actionPerformed(ActionEvent ae) {
 
         if (ae.getSource() == search) {
@@ -146,6 +172,7 @@ public class StudentDetails extends JFrame implements ActionListener {
         } else if (ae.getSource() == update) {
 
             setVisible(false);
+            // new UpdateStudent();
 
         } else if (ae.getSource() == delete) {
 

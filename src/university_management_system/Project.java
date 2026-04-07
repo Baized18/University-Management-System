@@ -23,7 +23,7 @@ public class Project extends JFrame implements ActionListener {
 
         // ===== Title Header =====
         JLabel heading = new JLabel("Bangladesh University of Business and Technology", JLabel.CENTER);
-        heading.setFont(new Font("Serif", Font.BOLD, 36));
+        heading.setFont(new Font("Times New Roman", Font.BOLD, 36));
         heading.setForeground(Color.WHITE);
         heading.setOpaque(true);
         heading.setBackground(new Color(0, 51, 102));
