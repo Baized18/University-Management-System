@@ -2,8 +2,8 @@ package university_management_system;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.sql.*;
+import java.awt.event.*; // Used for handling events like button clicks, mouse actions, keyboard input (ActionListener, MouseAdapter, etc.)
+import java.sql.*;       // Used for database operations such as connecting to DB, executing queries (Connection, Statement, ResultSet, etc.)
 
 public class Login extends JFrame implements ActionListener {
 

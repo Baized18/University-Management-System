@@ -3,7 +3,7 @@ package university_management_system;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
-import net.proteanit.sql.DbUtils;
+import net.proteanit.sql.DbUtils; // Used to convert ResultSet data into JTable format easily (avoids manual table population)
 import java.awt.event.*;
 
 // Main class for showing student details
