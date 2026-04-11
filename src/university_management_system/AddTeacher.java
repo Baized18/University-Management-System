@@ -1,6 +1,5 @@
 package university_management_system;
 
-import com.toedter.calendar.JDateChooser;
 import javax.swing.*; // GUI components
 import java.awt.*; // Layout, color, fonts
 import com.toedter.calendar.JDateChooser; // For date picker

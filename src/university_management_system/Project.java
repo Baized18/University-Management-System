@@ -61,6 +61,36 @@ public class Project extends JFrame implements ActionListener {
         studentDetails.addActionListener(this);
         details.add(studentDetails);
 
+        // ===== Apply Leave =====
+        JMenu leave = new JMenu("Apply Leave");
+        leave.setForeground(Color.BLUE);
+        mb.add(leave);
+        
+        JMenuItem facultyleave = new JMenuItem("Faculty Leave");
+        facultyleave.setBackground(Color.WHITE);
+        facultyleave.addActionListener(this);
+        leave.add(facultyleave);
+        
+        JMenuItem studentleave = new JMenuItem("Student Leave");
+        studentleave.setBackground(Color.WHITE);
+        studentleave.addActionListener(this);
+        leave.add(studentleave);
+        
+        // ===== Leave Details =====
+        JMenu leaveDetails = new JMenu("Leave Details");
+        leaveDetails.setForeground(Color.RED);
+        mb.add(leaveDetails);
+        
+        JMenuItem facultyleavedetails = new JMenuItem("Faculty Leave Details");
+        facultyleavedetails.setBackground(Color.WHITE);
+        facultyleavedetails.addActionListener(this);
+        leaveDetails.add(facultyleavedetails);
+        
+        JMenuItem studentleavedetails = new JMenuItem("Student Leave Details");
+        studentleavedetails.setBackground(Color.WHITE);
+        studentleavedetails.addActionListener(this);
+        leaveDetails.add(studentleavedetails);
+        
         // ===== Examination =====
         JMenu exam = new JMenu("Examination");
         exam.setForeground(new Color(0, 102, 204));
@@ -148,6 +178,14 @@ public class Project extends JFrame implements ActionListener {
             new TeacherDetails();
         } else if (msg.equals("Student Details")) {
             new StudentDetails();
+        }else if (msg.equals("Faculty Leave")) {
+            new TeacherLeave();
+        } else if (msg.equals("Student Leave")) {
+            new StudentLeave();
+        }else if (msg.equals("Faculty Leave Details")) {
+            new TeacherLeaveDetails();
+        } else if (msg.equals("Student Leave Details")) {
+            new StudentLeaveDetails();
         }
     }
 

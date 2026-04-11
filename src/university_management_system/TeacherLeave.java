@@ -19,6 +19,7 @@ public class TeacherLeave extends JFrame implements ActionListener {
 
         // Frame setup
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Bangladesh University of Business and Technology");
         setSize(500, 550);
         setLocation(550, 100);
         setLayout(null);
