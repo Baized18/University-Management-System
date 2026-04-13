@@ -24,7 +24,7 @@ public class AddTeacher extends JFrame implements ActionListener {
     // Constructor
     AddTeacher() {
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close app when window closes
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Close app when window closes
 
         setTitle("Bangladesh University of Business and Technology"); // Window title
         getContentPane().setBackground(new Color(255, 255, 255)); // White background
@@ -32,6 +32,7 @@ public class AddTeacher extends JFrame implements ActionListener {
 
         setSize(900, 700); // Window size
         setLocation(350, 50); // Window position
+        setResizable(false);
 
         // Heading
         heading = new JLabel("New Teacher Details");

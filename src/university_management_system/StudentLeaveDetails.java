@@ -22,7 +22,7 @@ public class StudentLeaveDetails extends JFrame implements ActionListener {
     StudentLeaveDetails() {
 
         // Frame settings
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Bangladesh University of Business and Technology");
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -97,6 +97,7 @@ public class StudentLeaveDetails extends JFrame implements ActionListener {
         setSize(900, 700);
         setLocation(350, 50);
         setVisible(true);
+        setResizable(false);
     }
 
     // Load table data

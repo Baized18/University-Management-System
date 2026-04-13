@@ -148,6 +148,7 @@ public class Project extends JFrame implements ActionListener {
         setJMenuBar(mb);
 
         setVisible(true);
+        setResizable(false);
     }
 
     public void actionPerformed(ActionEvent ae) {

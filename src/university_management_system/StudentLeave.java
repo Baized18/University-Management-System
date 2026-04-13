@@ -18,7 +18,7 @@ public class StudentLeave extends JFrame implements ActionListener {
     StudentLeave() {
 
         // Frame setup
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // 
         setTitle("Bangladesh University of Business and Technology");
         setSize(500, 550);
         setLocation(550, 100);
@@ -96,6 +96,7 @@ public class StudentLeave extends JFrame implements ActionListener {
         addHoverEffect(cancel, new Color(220,53,69), new Color(200,35,51)); // red
 
         setVisible(true);
+        setResizable(false);
     }
 
     // Method to add hover effect to buttons

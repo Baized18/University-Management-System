@@ -9,7 +9,7 @@ public class Splash extends JFrame implements Runnable { // Splash screen class 
 
     Splash() {
         
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             // Constructor to create and display splash screen
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);             // Constructor to create and display splash screen
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/BUBT1.jpg")); // Load image
         Image i2 = i1.getImage().getScaledInstance(1300, 750, Image.SCALE_DEFAULT); // Resize image
         ImageIcon i3 = new ImageIcon(i2); // Create ImageIcon from resized image
@@ -36,6 +36,7 @@ public class Splash extends JFrame implements Runnable { // Splash screen class 
 
         setLocation(350, 150); // Final position
         setSize(1000, 650); // Final size
+        setResizable(false);
     }
 
     public static void main(String args[]) { // Main method to launch splash screen

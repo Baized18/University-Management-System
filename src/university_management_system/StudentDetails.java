@@ -22,7 +22,7 @@ public class StudentDetails extends JFrame implements ActionListener {
     StudentDetails() {
 
         // Frame settings
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Bangladesh University of Business and Technology");
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -108,9 +108,10 @@ public class StudentDetails extends JFrame implements ActionListener {
         addHoverEffect(cancel, new Color(108,117,125), new Color(90,98,104));
 
         // Frame settings
-        setSize(900, 700);
+        setSize(910, 700);
         setLocation(350, 50);
         setVisible(true);
+        setResizable(false);
     }
 
     // Load table data
@@ -172,7 +173,7 @@ public class StudentDetails extends JFrame implements ActionListener {
         } else if (ae.getSource() == update) {
 
             setVisible(false);
-            // new UpdateStudent();
+            new UpdateStudent();
 
         } else if (ae.getSource() == delete) {
 

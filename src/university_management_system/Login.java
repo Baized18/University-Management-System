@@ -12,7 +12,7 @@ public class Login extends JFrame implements ActionListener {
     JPasswordField tfpw;
 
     Login() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // closes current screen only             //EXIT_ON_CLOSE      closes all screens
         setTitle("Bangladesh University of Business and Technology");
         getContentPane().setBackground(new Color(240, 248, 255));
         setLayout(null);
@@ -94,6 +94,7 @@ public class Login extends JFrame implements ActionListener {
         setSize(600, 300);
         setLocationRelativeTo(null);
         setVisible(true);
+        setResizable(false);
     }
 
     public void actionPerformed(ActionEvent ae) {
