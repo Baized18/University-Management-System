@@ -193,6 +193,8 @@ public class Project extends JFrame implements ActionListener {
             new EnterMarks();
         }else if (msg.equals("Fee Structure")) {
             new FeeStructure();
+        }else if (msg.equals("Student Fee")) {
+            new StudentFeeForm();
         }
     }
 

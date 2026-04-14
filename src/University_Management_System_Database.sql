@@ -84,6 +84,14 @@ CREATE TABLE Fee (
     Semester8 VARCHAR(50)
 );
 
+-- FeesPaid Table
+CREATE TABLE FeesPaid (
+    Roll_Number varchar(50) ,
+    Program VARCHAR(50),
+    Semester VARCHAR(50) ,
+    Total varchar (50)
+);
+
 -- Insert Data
 INSERT INTO fee VALUES
 ("BBA",  "75000", "70000", "65000", "60000", "55000", "50000", "45000", "40000"),
@@ -105,3 +113,4 @@ SELECT * FROM TeacherLeave;
 SELECT * FROM Subject;
 SELECT * FROM Marks;
 SELECT * FROM Fee;
+select * from FeesPaid;
