@@ -244,7 +244,7 @@ public class UpdateStudent extends JFrame implements ActionListener {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); //prints detailed error information
         }
     }
 

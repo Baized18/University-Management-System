@@ -30,6 +30,14 @@ create table StudentLeave (Roll_Number varchar(50) ,
 create table TeacherLeave (Employee_ID varchar(50) , 
 							Date varchar(50) , 
                             Duration varchar(50));
+  
+create table Login (Username varchar(50)  , Password varchar(50);  
+                            
+create table subject (Roll_Number varchar(50) , Semester varchar(50) , Subject1 varchar(50) , Subject2 varchar(50) , Subject3 varchar(50) , Subject4 varchar(50) , Subject5 varchar(50));
+
+create table marks (Roll_Number varchar(50) , Semester varchar(50) , Marks1 varchar(50) , Marks2 varchar(50) , Marks3 varchar(50) , Marks4 varchar(50) , Marks5 varchar(50));
+
+
 
 select * from Student;
 
@@ -40,3 +48,7 @@ select * from Login;
 select * from studentleave;
 
 select * from Teacherleave;
+
+select * from subject;
+
+select * from marks;

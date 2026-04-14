@@ -33,7 +33,7 @@ public class Project extends JFrame implements ActionListener {
         // ===== Menu Bar =====
         JMenuBar mb = new JMenuBar();
         mb.setBackground(new Color(230, 230, 230));
-        mb.setFont(new Font("Arial", Font.BOLD, 14));
+        mb.setFont(new Font("Times New Roman", Font.BOLD, 14));
 
         // ===== New Information =====
         JMenu newInformation = new JMenu("New Information");
