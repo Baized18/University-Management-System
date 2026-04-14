@@ -29,12 +29,6 @@ public class Marks extends JFrame implements ActionListener {
         heading.setFont(new Font("Times New Roman", Font.BOLD, 28));
         add(heading);
 
-        // Sub Heading
-        JLabel subheading = new JLabel("Examination Result");
-        subheading.setBounds(200, 60, 300, 30);
-        subheading.setFont(new Font("Times New Roman", Font.BOLD, 20));
-        add(subheading);
-
         // Roll Number
         JLabel lblrollno = new JLabel("Roll Number: " + rollno);
         lblrollno.setBounds(60, 120, 400, 25);

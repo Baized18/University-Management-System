@@ -187,6 +187,12 @@ public class Project extends JFrame implements ActionListener {
             new TeacherLeaveDetails();
         } else if (msg.equals("Student Leave Details")) {
             new StudentLeaveDetails();
+        }else if (msg.equals("Results")) {
+            new ExaminationDetails();
+        }else if (msg.equals("Enter Marks")) {
+            new EnterMarks();
+        }else if (msg.equals("Fee Structure")) {
+            new FeeStructure();
         }
     }
 
